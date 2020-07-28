@@ -98,7 +98,7 @@ class Instructores extends Component {
         const data = {insClave:this.frnInsClave.value, insNombre:this.frnInsNombre.value, insDepto:this.state.value}
         if (!this.state.edit)
         {
-           const url = 'http://localhost:4000/api/instructores/';
+           const url = 'https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/';
            axios.post(url,data).then(res => console.log(res.data));
            this.frnInsClave.value="";
            this.frnInsNombre.value="";
@@ -109,7 +109,7 @@ class Instructores extends Component {
         }
         else
         {
-           const url ='http://localhost:4000/api/instructores/'+this.state.id;
+           const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/'+this.state.id;
            const data = {insClave:this.frnInsClave.value, insNombre:this.frnInsNombre.value, insDepto:this.state.value};
            axios.put(url,data).then(res => console.log(res.data));
            this.frnInsClave.value="";
@@ -159,7 +159,7 @@ class Instructores extends Component {
     deleteInstructor =(id) => event =>
     {
       //event.preventDefault();
-      const url ='http://localhost:4000/api/instructores/'+id;
+      const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/'+id;
       axios.delete(url).then(res => console.log(res.data));
       this.frnInsClave.value="";
       this.frnInsNombre.value="";
@@ -174,7 +174,7 @@ class Instructores extends Component {
 
     loadInstructores()
     {
-        axios.get('http://localhost:4000/api/instructores')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/')
         .then (res => {
           this.setState({instructoresA:res.data});
           //console.log(res.data);

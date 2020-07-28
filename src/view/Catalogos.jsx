@@ -108,7 +108,7 @@ class Catalogos extends Component {
                       actContenido:this.frnActContenido.value}
         if (!this.state.edit)
         {
-           const url = 'http://localhost:4000/api/actividades/';
+           const url = 'https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/';
            axios.post(url,data).then(res => console.log(res.data));
            this.frnActClave.value="";
            this.frnActNombre.value="";
@@ -123,7 +123,7 @@ class Catalogos extends Component {
         }
         else
         {
-           const url ='http://localhost:4000/api/actividades/'+this.state.id;
+           const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/'+this.state.id;
            const data = {actClave:this.frnActClave.value, 
                         actNombre:this.frnActNombre.value, 
                         actCategoria:this.state.value,
@@ -195,7 +195,7 @@ class Catalogos extends Component {
     deleteActividad =(id) => event =>
     {
       //event.preventDefault();
-      const url ='http://localhost:4000/api/actividades/'+id;
+      const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/'+id;
       axios.delete(url).then(res => console.log(res.data));
       this.frnActClave.value="";
       this.frnActNombre.value="";
@@ -215,7 +215,7 @@ class Catalogos extends Component {
 
     loadActividades()
     {
-        axios.get('http://localhost:4000/api/actividades')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/')
         .then (res => {
           this.setState({catalogoA:res.data});
           //console.log(res.data);

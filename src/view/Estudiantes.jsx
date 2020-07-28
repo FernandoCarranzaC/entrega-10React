@@ -120,7 +120,7 @@ class Estudiantes extends Component {
         const data = {estNoControl:this.frnEstNoControl.value, estNombre:this.frnEstNombre.value, estCarrera:this.state.value}
         if (!this.state.edit)
         {
-          const url = 'http://localhost:4000/api/estudiantes/';
+          const url = 'https://lop-actividades.us-south.cf.appdomain.cloud/api/estudiantes/';
           axios.post(url,data).then(res => console.log(res.data));
            this.frnEstNoControl.value="";
            this.frnEstNombre.value="";
@@ -131,7 +131,7 @@ class Estudiantes extends Component {
         }
         else
         {
-           const url ='http://localhost:4000/api/estudiantes/'+this.state.id;
+           const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/estudiantes/'+this.state.id;
            const data = {estNoControl:this.frnEstNoControl.value, estNombre:this.frnEstNombre.value, estCarrera:this.state.value}
            axios.put(url,data).then(res => console.log(res.data));
            this.frnEstNoControl.value="";
@@ -186,7 +186,7 @@ class Estudiantes extends Component {
     deleteEstudiante =(id) => event =>
     {
       //event.preventDefault();
-      const url ='http://localhost:4000/api/estudiantes/'+id;
+      const url ='https://lop-actividades.us-south.cf.appdomain.cloud/api/estudiantes/'+id;
       axios.delete(url).then(res => console.log(res.data));
       this.frnEstNoControl.value="";
       this.frnEstNombre.value="";
@@ -202,7 +202,7 @@ class Estudiantes extends Component {
 
     loadEstudiantes()
     {
-        axios.get('http://localhost:4000/api/estudiantes').then (res => {
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/estudiantes/').then (res => {
           this.setState({estudiantesA:res.data});
           console.log(res.data);
         })

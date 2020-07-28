@@ -175,12 +175,12 @@ class Grupos extends Component {
 
         if(!this.state.edit)
         {
-            const url = 'http://localhost:4000/api/grupos/';
+            const url = 'https://lop-actividades.us-south.cf.appdomain.cloud/api/grupos/';
             axios.post(url,dataGrupo).then (res=> console.log(res.data));           
         }
         else
         {
-            const url='http://localhost:4000/api/grupos/'+this.state.id;
+            const url='https://lop-actividades.us-south.cf.appdomain.cloud/api/grupos/'+this.state.id;
             axios.put(url,dataGrupo).then(res=> console.log(res.data));
            
         }
@@ -321,7 +321,7 @@ class Grupos extends Component {
     }
 
     deleteGrupo =(id) => event =>
-    { const url='http://localhost:4000/api/grupos/'+id;
+    { const url='https://lop-actividades.us-south.cf.appdomain.cloud/api/grupos/'+id;
         axios.delete(url).then(res => console.log(res.data));
         this.frnGrpClave_Grpo.value="";
         this.frnGrpCarrera.value="";
@@ -343,7 +343,7 @@ class Grupos extends Component {
 
     loadGrupos()
     {
-        axios.get('http://localhost:4000/api/actividades')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/')
         .then (res => {
           this.setState({catalogoA:res.data});
           //alert('primer elemento del actiivdades: '+this.state.catalogoA[0].actClave);
@@ -354,7 +354,7 @@ class Grupos extends Component {
          // this.setState(newState);
           //console.log(res.data);
         }) ;
-        axios.get('http://localhost:4000/api/instructores')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/')
         .then (res => {
           this.setState({instructoresA:res.data});
           /*var newState =  this.state;
@@ -364,7 +364,7 @@ class Grupos extends Component {
         //  this.setState(newState);
         }) ;
 
-        axios.get('http://localhost:4000/api/grupos')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/grupos/')
         .then (res => {
           this.setState({gruposA:res.data});
           //console.log(res.data);
@@ -373,7 +373,7 @@ class Grupos extends Component {
     }
     loadGruposinicio()
     {
-        axios.get('http://localhost:4000/api/actividades')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/actividades/')
         .then (res => {
           this.setState({catalogoA:res.data});
           //alert('primer elemento del actiivdades: '+this.state.catalogoA[0].actClave);
@@ -384,7 +384,7 @@ class Grupos extends Component {
           this.setState(newState);
           //console.log(res.data);
         }) ;
-        axios.get('http://localhost:4000/api/instructores')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/instructores/')
         .then (res => {
           this.setState({instructoresA:res.data});
           var newState =  this.state;
@@ -394,7 +394,7 @@ class Grupos extends Component {
          this.setState(newState);
         }) ;
 
-        axios.get('http://localhost:4000/api/grupos')
+        axios.get('https://lop-actividades.us-south.cf.appdomain.cloud/api/grupos/')
         .then (res => {
           this.setState({gruposA:res.data});
           //console.log(res.data);
